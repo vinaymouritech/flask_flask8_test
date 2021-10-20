@@ -1,0 +1,34 @@
+stages:
+  - linting
+
+isort:
+  stage: linting
+  image: registry.gitlab.com/mafda/python-linting
+  script:
+    - isort . --check-only
+  only:
+    - merge_requests
+
+black:
+  stage: linting
+  image: registry.gitlab.com/mafda/python-linting
+  script:
+    - black --check .
+  only:
+    - merge_requests
+
+flake8:
+  stage: linting
+  image: registry.gitlab.com/mafda/python-linting
+  script:
+    - flake8 .
+  only:
+    - merge_requests
+
+pylint:
+  stage: linting
+  image: registry.gitlab.com/mafda/python-linting
+  script:
+    - find . -type f -name "*.py" | xargs pylint
+  only:
+    - merge_requests
