@@ -1,0 +1,10 @@
+repos:
+-   repo: https://github.com/vinaymouritech/flask_flask8_test/black
+    rev: stable
+    hooks:
+    - id: black
+      language_version: python3.8
+-   repo: https://github.com/vinaymouritech/flask_flask8_test/flake8
+    rev: 3.7.9
+    hooks:
+    - id: flake8
